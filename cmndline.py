@@ -50,34 +50,22 @@ def main():
             print(str(i + 1) + ": " + options[i])
 
         print("\nPlayer 1:")
-        p1_rankings[0] = input("1: ")
-        p1_rankings[1] = input("2: ")
-        p1_rankings[2] = input("3: ")
-        p1_rankings[3] = input("4: ")
-        p1_rankings[4] = input("5: ")
+        for i in range(5):
+            p1_rankings[i] = input(str(i + 1) + ": ")
 
         print("\nPlayer 2:")
-        p2_rankings[0] = input("1: ")
-        p2_rankings[1] = input("2: ")
-        p2_rankings[2] = input("3: ")
-        p2_rankings[3] = input("4: ")
-        p2_rankings[4] = input("5: ")
+        for i in range(5):
+            p2_rankings[i] = input(str(i + 1) + ": ")
 
         print("\nGuess Ranking:")
 
         print("\nPlayer 1:")
-        p1_guesses[0] = input("1: ")
-        p1_guesses[1] = input("2: ")
-        p1_guesses[2] = input("3: ")
-        p1_guesses[3] = input("4: ")
-        p1_guesses[4] = input("5: ")
+        for i in range(5):
+            p1_guesses[i] = input(str(i + 1) + ": ")
 
         print("\nPlayer 2:")
-        p2_guesses[0] = input("1: ")
-        p2_guesses[1] = input("2: ")
-        p2_guesses[2] = input("3: ")
-        p2_guesses[3] = input("4: ")
-        p2_guesses[4] = input("5: ")
+        for i in range(5):
+            p2_guesses[i] = input(str(i + 1) + ": ")
 
         for i in range(5):
             if p1_guesses[i] == p2_rankings[i]:
