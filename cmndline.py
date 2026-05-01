@@ -6,8 +6,10 @@ stuff = {
     5 : "Sanji"
 }
 
-rankings = [0, 0, 0, 0, 0]
-guesses = [0, 0, 0, 0, 0]
+p1_rankings = [0, 0, 0, 0, 0]
+p1_guesses = [0, 0, 0, 0, 0]
+p2_rankings = [0, 0, 0, 0, 0]
+p2_guesses = [0, 0, 0, 0, 0]
 
 print(
     "\nRank:" + "\n1: " + stuff[1]
@@ -18,21 +20,43 @@ print(
               + "\n"
 )
 
-rankings[0] = input("1: ")
-rankings[1] = input("2: ")
-rankings[2] = input("3: ")
-rankings[3] = input("4: ")
-rankings[4] = input("5: ")
+print("Player 1:")
+p1_rankings[0] = input("1: ")
+p1_rankings[1] = input("2: ")
+p1_rankings[2] = input("3: ")
+p1_rankings[3] = input("4: ")
+p1_rankings[4] = input("5: ")
+
+print("\nPlayer 2:")
+p2_rankings[0] = input("1: ")
+p2_rankings[1] = input("2: ")
+p2_rankings[2] = input("3: ")
+p2_rankings[3] = input("4: ")
+p2_rankings[4] = input("5: ")
 
 print("\nGuess Ranking:")
-guesses[0] = input("1: ")
-guesses[1] = input("2: ")
-guesses[2] = input("3: ")
-guesses[3] = input("4: ")
-guesses[4] = input("5: ")
 
-score = 0
+print("\nPlayer 1:")
+p1_guesses[0] = input("1: ")
+p1_guesses[1] = input("2: ")
+p1_guesses[2] = input("3: ")
+p1_guesses[3] = input("4: ")
+p1_guesses[4] = input("5: ")
+
+print("\nPlayer 2:")
+p2_guesses[0] = input("1: ")
+p2_guesses[1] = input("2: ")
+p2_guesses[2] = input("3: ")
+p2_guesses[3] = input("4: ")
+p2_guesses[4] = input("5: ")
+
+p1_score = 0
+p2_score = 0
 for i in range(5):
-    if rankings[i] == guesses[i]:
-        score += 1
-print("\nScore: " + str(score))
+    if p1_guesses[i] == p2_rankings[i]:
+        p1_score += 1
+    if p2_guesses[i] == p1_rankings[i]:
+        p2_score += 1
+
+print("\nPlayer 1 Score: " + str(p1_score))
+print("\nPlayer 2 Score: " + str(p2_score))
