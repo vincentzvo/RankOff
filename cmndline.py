@@ -26,9 +26,18 @@ SPORTS = [
 ]
 
 Categories = {
-    "1" : CHARACTERS,
-    "2" : SPORTS
+    1 : CHARACTERS,
+    2 : SPORTS
 }
+
+def getInput(used_set, rankings):
+    for i in range(5):
+            while not (1 <= rankings[i] <= 5) or rankings[i] in used_set:
+                print("Available Ranks: " + str({1, 2, 3, 4, 5} - used_set)[1:-1])
+                user_in = input(str(i + 1) + ": ")
+                if len(user_in) != 1 or user_in == ' ': continue
+                rankings[i] = int(user_in)
+            used_set.add(rankings[i])
 
 def main():
     p1_score = 0
@@ -42,7 +51,11 @@ def main():
 
         cat = 0
         print("\nCategories:\n1: Characters\n2: Sports\n")
-        cat = input("Pick Category: ")
+
+        while not (1 <= cat <= 2):
+            user_in = input("Pick Category: ")
+            if len(user_in) != 1 or user_in == ' ': continue
+            cat = int(user_in)
 
         options = random.sample(Categories[cat], 5)
         print("\nRank:")
@@ -50,22 +63,22 @@ def main():
             print(str(i + 1) + ": " + options[i])
 
         print("\nPlayer 1:")
-        for i in range(5):
-            p1_rankings[i] = input(str(i + 1) + ": ")
+        p1_used_ranks = set()
+        getInput(p1_used_ranks, p1_rankings)
 
         print("\nPlayer 2:")
-        for i in range(5):
-            p2_rankings[i] = input(str(i + 1) + ": ")
+        p2_used_ranks = set()
+        getInput(p2_used_ranks, p2_rankings)
 
         print("\nGuess Ranking:")
 
         print("\nPlayer 1:")
-        for i in range(5):
-            p1_guesses[i] = input(str(i + 1) + ": ")
+        p1_used_guesses = set()
+        getInput(p1_used_guesses, p1_guesses)
 
         print("\nPlayer 2:")
-        for i in range(5):
-            p2_guesses[i] = input(str(i + 1) + ": ")
+        p2_used_guesses = set()
+        getInput(p2_used_guesses, p2_guesses)
 
         for i in range(5):
             if p1_guesses[i] == p2_rankings[i]:
