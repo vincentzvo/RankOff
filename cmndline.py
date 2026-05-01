@@ -1,3 +1,5 @@
+import random
+
 CHARACTERS = [
     "Luffy",
     "Zoro",
@@ -23,6 +25,11 @@ SPORTS = [
     "Darts"
 ]
 
+Categories = {
+    "1" : CHARACTERS,
+    "2" : SPORTS
+}
+
 def main():
     p1_score = 0
     p2_score = 0
@@ -33,16 +40,16 @@ def main():
         p2_rankings = [0, 0, 0, 0, 0]
         p2_guesses = [0, 0, 0, 0, 0]
 
-        print(
-            "\nRank:" + "\n1: " + CHARACTERS[1]
-                    + "\n2: " + CHARACTERS[2]
-                    + "\n3: " + CHARACTERS[3]
-                    + "\n4: " + CHARACTERS[4]
-                    + "\n5: " + CHARACTERS[5]
-                    + "\n"
-        )
+        cat = 0
+        print("\nCategories:\n1: Characters\n2: Sports\n")
+        cat = input("Pick Category: ")
 
-        print("Player 1:")
+        options = random.sample(Categories[cat], 5)
+        print("\nRank:")
+        for i in range(5):
+            print(str(i + 1) + ": " + options[i])
+
+        print("\nPlayer 1:")
         p1_rankings[0] = input("1: ")
         p1_rankings[1] = input("2: ")
         p1_rankings[2] = input("3: ")
